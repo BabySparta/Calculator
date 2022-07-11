@@ -73,12 +73,24 @@ function addPoint() {
 }
 
 function numTxt(number) {
+    if (mainDisplay.textContent.length >= 12) {return;}
+    let checkEqual = secondaryDisplay.textContent.split(' ')
+    if(checkEqual[3] === '=' && checkEqual[4] === undefined) {
+        secondaryDisplay.textContent = secondaryDisplay.textContent + ' ' + mainDisplay.textContent;
+        mainDisplay.textContent = "";
+    }
     remZeros(); 
     mainDisplay.textContent += number;
 }
 
 function disOp(operation) {
     if(secondaryDisplay.textContent !== '' && !secondaryDisplay.textContent.includes('=')) {disEqual()}
+    if(mainDisplay.textContent === "") {
+        let splitDis = secondaryDisplay.textContent.split(' ');
+        let number = splitDis[0];
+        secondaryDisplay.textContent = number + ' ' + operation;
+        return;
+    }
     let num1 = mainDisplay.textContent;
     secondaryDisplay.textContent = num1 + " " + operation;
     mainDisplay.textContent = "";
@@ -86,6 +98,7 @@ function disOp(operation) {
 
 function disEqual() {
     if(secondaryDisplay.textContent === '') {return;}
+    if(secondaryDisplay.textContent.includes('=')) {return;}
     let num2 = mainDisplay.textContent;
     let disText2 = secondaryDisplay.textContent
     if(num2 === '') {return;}
@@ -96,6 +109,7 @@ function disEqual() {
     if(num2 === '0' && op === '/') {alert('Nice try but no. Try again'); return}
     let rounded = operate(num1, op, num2)
     mainDisplay.textContent = Math.round(rounded * 10000000) / 10000000;
+    if (mainDisplay.textContent.length >= 12) {mainDisplay.textContent = Number(mainDisplay.textContent).toExponential(4)};
     secondaryDisplay.textContent = num1 + " " + op + " " + num2 + " =";
 }
 
@@ -109,8 +123,95 @@ function remZeros() {
     }}
 }
 
+function limitChar() {
+    if (mainDisplay.textContent.length >= 12) {
+        return;
+    }
+}
 
-// Things left to do :
-// not allow multiple operations to be inputted
-// If you type a number after doing an equation, start a new equation
-// dont do anything if equal is pressed twice in a row
+window.onkeydown = function(event){     // keyboard suppor. It's goddamn long.
+    let x = event.key;
+    let keyD;
+    let group;
+    switch(x){
+        case '1':
+            keyD = document.querySelector(".one");
+            group = 'press';
+            break;
+        case '2':
+            keyD = document.querySelector(".two");
+            group = 'press';
+            break;
+        case '3':
+            keyD = document.querySelector(".three");
+            group = 'press';
+            break;
+        case '4':
+            keyD = document.querySelector(".four");
+            group = 'press';
+            break;
+        case '5':
+            keyD = document.querySelector(".five");
+            group = 'press';
+            break;
+        case '6':
+            keyD = document.querySelector(".six");
+            group = 'press';
+            break;
+        case '7':
+            keyD = document.querySelector(".seven");
+            group = 'press';
+            break;
+        case '8':
+            keyD = document.querySelector(".eight");
+            group = 'press';
+            break;
+        case '9':
+            keyD = document.querySelector(".nine");
+            group = 'press';
+            break; // sigh
+        case '0':
+            keyD = document.querySelector(".zero");
+            group = 'press';
+            break;
+        case '+':
+            keyD = document.querySelector('.add');
+            group = 'press';
+            break;
+        case '-':
+            keyD = document.querySelector('.sub');
+            group = 'press';
+            break;
+        case '*':
+            keyD = document.querySelector('.mult');
+            group = 'press';
+            break;
+        case '/':
+            keyD = document.querySelector('.div');
+            group = 'press';
+            break;
+        case '=':
+            keyD = document.querySelector('.equal');
+            group = 'press';
+            break;
+        case 'Enter':
+            keyD = document.querySelector('.equal');
+            group = 'press';
+            break;
+        case '.':
+            keyD = document.querySelector(".point");
+            group = 'press';
+            break;
+        case 'Backspace':
+            keyD = document.querySelector(".del");
+            group = 'press';
+            break;
+        case 'Escape':
+            keyD = document.querySelector('.clear');
+            group = 'press';
+            break;
+    } if (keyD != undefined){
+        keyD.classList.add(group);
+        this.setTimeout(function() {keyD.classList.remove(group)}, 50);
+}
+}

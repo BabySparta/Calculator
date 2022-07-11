@@ -1,6 +1,8 @@
 html, body {
     background-color: rgb(101, 109, 116);
     margin: 0;
+    font-family: "Lucida" Grande, sans-serif;
+    font-weight:500;
 }
 .calc {
     display: flex;
@@ -14,7 +16,9 @@ html, body {
     border-radius: 8px;
     outline-style: solid;
     outline-color: black;
-    outline-width: 16px;
+    outline-width: 12px;
+    font-family:inherit;
+    font-weight: inherit;
 }
 
 .btn {
@@ -25,12 +29,14 @@ html, body {
 #number, #oper {
     width: 64px;
     height: 64px;
-    background-color: rgb(191, 224, 235);
+    background-color: rgb(182, 255, 225);
     border-style: solid;
     border-width: 4px;
     border-radius: 8px;
     border-color: black;
     font-size: 32px;
+    font-family:inherit;
+    font-weight: inherit;
 }
 
 .numbs {
@@ -56,30 +62,49 @@ html, body {
     width: 154px;
 }
 
+.display {
+    border: 4px solid black;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
 .main {
     height: 50px;
     width: 325px;
     background-color: whitesmoke;
-    margin-bottom: 16px;
     text-align: right;
     font-size: 48px;
     font-weight: 500;
     padding: 0px 8px 4px 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    font-family:inherit;
+    font-weight: inherit;
 }
 
 
 .secondary {
-    height: 30px;
+    height: 40px;
     width: 325px;
     background-color: whitesmoke;
     text-align: right;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     padding: 4px 8px 0px 8px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    font-family:inherit;
+    font-weight: inherit;
+}
+
+#oper:hover, #number:hover, .press {
+    background-color: rgb(164, 230, 202);
+    transform: scale(1.03);
+}
+
+#oper:active, #number:active {
+    background-color: rgb(152, 214, 188);
+    transform: scale(1);
 }
 
 .footer {
@@ -94,4 +119,5 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
+    font-family:inherit
 }
