@@ -1,0 +1,97 @@
+html, body {
+    background-color: rgb(101, 109, 116);
+    margin: 0;
+}
+.calc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 72px auto 0px auto;
+    width: 400px;
+    height: 600px;
+    background-color: lightgray;
+    border-radius: 8px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 16px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#number, #oper {
+    width: 64px;
+    height: 64px;
+    background-color: rgb(191, 224, 235);
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 8px;
+    border-color: black;
+    font-size: 32px;
+}
+
+.numbs {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    gap: 16px;
+    width: 350px;
+    height: 415px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.func {
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+}
+
+#oper.clear, #oper.del {
+    width: 154px;
+}
+
+.main {
+    height: 50px;
+    width: 325px;
+    background-color: whitesmoke;
+    margin-bottom: 16px;
+    text-align: right;
+    font-size: 48px;
+    font-weight: 500;
+    padding: 0px 8px 4px 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+.secondary {
+    height: 30px;
+    width: 325px;
+    background-color: whitesmoke;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 4px 8px 0px 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.footer {
+    background-color: rgb(76, 84, 92);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(223, 223, 223);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
